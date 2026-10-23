@@ -1,0 +1,27 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Pytest and testing artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Streamlit secrets & local overrides
+.streamlit/secrets.toml
+
+# Environment variables
+.env
+.env.local
+
+# Operating System files
+.DS_Store
+Thumbs.db
+*.tmp
