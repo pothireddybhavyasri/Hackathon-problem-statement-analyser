@@ -1,177 +1,464 @@
-# Hackathon Insights — Problem Statement Analysis
+# Hackathon Insights 📊
 
-> **A complete, working, tested, and presentation-ready Data Analytics platform** built for analyzing hackathon problem statements across domains, technical stacks, difficulty levels, and historical timelines. Mapped directly to the university academic curriculum **CS513PE: DATA ANALYTICS** (B.Tech III-I CSE, R24 Regulations).
+🔗 **Live Dashboard:** [https://hackathon-insights.streamlit.app/](https://hackathon-insights.streamlit.app/)
+
+*From Hackathon Problem Statements to Data-Driven Insights 🚀*
+
+Hackathon Insights is a data analytics project designed to analyze hackathon problem statements, explore trends, understand domain distributions, and discover meaningful patterns through data cleaning, exploratory data analysis, statistical analysis, machine learning, and interactive visualizations.
 
 ---
 
-## 📌 Executive Summary
+## 📑 Table of Contents
 
-- **Primary Objective**: Analyze hackathon problem statements through data management, data cleaning, exploratory data analysis, inferential statistics, machine learning, text similarity, visualization, and time-series forecasting.
-- **Dataset Size**: **524 total records** in raw dataset (520 base problem statements + 4 intentional duplicate rows), 23 schema columns.
-- **Data Provenance**: **130 verified sourced records (25.0%)** from authentic public hackathons (*Smart India Hackathon SIH*, *NASA International Space Apps Challenge*, *MIT Grand Hacks*, *HackMIT*, *ETHIndia*, *AI for Good Global Summit*) and **390 transparently labeled synthetic records (75.0%)** generated via reproducible parametric templates (`seed=42`).
-- **Test Suite**: **25 automated tests passed in 22s** using `pytest`.
-- **Database Engine**: Relational SQLite database with parameterized execution and pre-built SQL demonstrations (SELECT, WHERE, GROUP BY, HAVING, ORDER BY, JOIN).
+1. [Project Overview](#-project-overview)
+2. [Project Objectives](#-project-objectives)
+3. [Project Workflow](#-project-workflow)
+4. [Mermaid Flowchart Test](#-mermaid-flowchart-test)
+5. [Data Cleaning Process](#-data-cleaning-process)
+6. [Exploratory Data Analysis](#-exploratory-data-analysis)
+7. [Statistical Analysis](#-statistical-analysis)
+8. [Machine Learning and Text Analytics](#-machine-learning-and-text-analytics)
+9. [System Architecture](#-system-architecture)
+10. [Technology Stack](#-technology-stack)
+11. [Getting Started](#-getting-started)
+12. [Project Structure](#-project-structure)
+13. [Testing and Verification](#-testing-and-verification)
+14. [Deployment](#️-deployment)
+15. [Limitations](#️-limitations)
+16. [Future Enhancements](#-future-enhancements)
+17. [Author](#-author)
+
+---
+
+## 🚀 Project Overview
+
+Hackathon Insights transforms raw hackathon problem-statement data into meaningful analytical insights using Python and data analytics techniques.
+
+The project demonstrates the complete data analytics lifecycle, from collecting and preparing data to analyzing patterns and presenting results through an interactive dashboard.
+
+**Live Application:** [Open Hackathon Insights](https://hackathon-insights.streamlit.app/)
+
+## 🎯 Project Objectives
+
+- Analyze hackathon problem statements using data analytics.
+- Clean and preprocess raw datasets.
+- Explore distributions, patterns, and relationships in the data.
+- Apply statistical techniques to investigate selected hypotheses.
+- Explore machine learning and text analytics methods.
+- Present analytical results through interactive charts and dashboards.
+- Make the analysis accessible through a publicly deployed web application.
+
+---
+
+## 🔄 Project Workflow
+
+The following flowchart illustrates the complete project process, from loading the dataset to presenting insights.
+
+```mermaid
+flowchart TD
+    A(["Start"]) --> B["Load Hackathon Dataset"]
+    B --> C["Inspect Dataset"]
+    C --> D["Data Cleaning and Preprocessing"]
+    D --> E["Handle Missing Values and Duplicates"]
+    E --> F["Transform and Prepare Features"]
+    F --> G["Exploratory Data Analysis"]
+    G --> H["Statistical Analysis"]
+    G --> I["Machine Learning and Text Analytics"]
+    H --> J["Generate Visualizations"]
+    I --> J
+    J --> K["Build Interactive Streamlit Dashboard"]
+    K --> L["Interpret Results and Discover Insights"]
+    L --> M(["End"])
+```
+
+### Workflow Explanation
+
+| Stage | Description |
+|---|---|
+| Data Loading | Load the available hackathon problem-statement dataset. |
+| Data Inspection | Examine rows, columns, data types, and data quality. |
+| Data Cleaning | Handle missing values, duplicates, and inconsistent values. |
+| Feature Preparation | Prepare relevant features for analysis. |
+| Exploratory Analysis | Explore patterns and distributions using charts. |
+| Statistical Analysis | Apply suitable statistical methods. |
+| Machine Learning | Explore predictive or unsupervised methods where implemented. |
+| Visualization | Present findings through charts and graphs. |
+| Dashboard | Provide an interactive interface for exploring results. |
+
+---
+
+## 🧪 Mermaid Flowchart Test
+
+These two simple flowcharts can help verify that Mermaid diagrams render correctly on GitHub.
+
+### Test 1 — Basic Flowchart
+
+```mermaid
+flowchart TD
+    A([Start]) --> B["Load Dataset"]
+    B --> C["Clean Data"]
+    C --> D["Analyze Data"]
+    D --> E["Create Visualizations"]
+    E --> F["Display Dashboard"]
+    F --> G([End])
+```
+
+### Test 2 — Decision-Based Analytics Flowchart
+
+```mermaid
+flowchart TD
+    A(["Start"]) --> B["Load Hackathon Dataset"]
+    B --> C{"Data Valid?"}
+    C -->|No| D["Clean and Validate Data"]
+    D --> C
+    C -->|Yes| E["Exploratory Data Analysis"]
+    E --> F["Statistical Analysis"]
+    E --> G["Machine Learning"]
+    F --> H["Generate Charts"]
+    G --> H
+    H --> I["Streamlit Dashboard"]
+    I --> J(["Insights"])
+```
+
+**Expected result:** GitHub displays each flowchart as a visual diagram instead of showing the raw Mermaid code. Ensure each diagram is enclosed in a code block beginning with ` ```mermaid ` and ending with three backticks.
+
+---
+
+## 🧹 Data Cleaning Process
+
+Data cleaning prepares raw data for analysis by identifying missing values, duplicate records, inconsistent categories, and unsuitable data types.
+
+```mermaid
+flowchart TD
+    A["Raw Dataset"] --> B["Inspect Rows and Columns"]
+    B --> C["Check Data Types"]
+    C --> D["Identify Missing Values"]
+    D --> E["Detect Duplicate Records"]
+    E --> F["Standardize Values"]
+    F --> G["Handle Missing Data"]
+    G --> H["Review Outliers"]
+    H --> I["Validate Cleaned Data"]
+    I --> J["Analysis-Ready Dataset"]
+```
+
+### Data Cleaning Activities
+
+- Inspect the dataset dimensions and schema.
+- Identify missing values in relevant columns.
+- Detect and remove duplicate records where appropriate.
+- Standardize text values and categorical labels.
+- Handle missing data using suitable methods.
+- Review numerical outliers.
+- Validate the cleaned dataset before analysis.
+
+*The exact cleaning operations depend on the implementation and the dataset.*
+
+---
+
+## 📈 Exploratory Data Analysis (EDA)
+
+Exploratory Data Analysis helps uncover patterns and understand the characteristics of the dataset before drawing conclusions.
+
+### Types of Visualizations
+
+| Visualization | Purpose |
+|---|---|
+| Bar Chart | Compare problem-statement counts across categories. |
+| Pie Chart | Understand proportions across a limited number of categories. |
+| Histogram | Examine the distribution of numerical features. |
+| Line Chart | Explore trends when meaningful time-based data is available. |
+| Correlation Heatmap | Investigate relationships between numerical features. |
+| Scatter Plot | Explore relationships between two variables. |
+| Box Plot | Examine distributions and potential outliers. |
+
+### EDA Workflow
+
+```mermaid
+flowchart TD
+    A["Cleaned Dataset"] --> B["Univariate Analysis"]
+    A --> C["Bivariate Analysis"]
+    A --> D["Multivariate Analysis"]
+    B --> E["Frequency and Distribution Charts"]
+    C --> F["Relationships and Comparisons"]
+    D --> G["Correlation and Pattern Exploration"]
+    E --> H["Analytical Findings"]
+    F --> H
+    G --> H
+```
+
+---
+
+## 📊 Statistical Analysis
+
+Statistical analysis helps investigate relationships and test hypotheses using appropriate methods.
+
+Potential methods include:
+
+- **Descriptive Statistics:** Summarize numerical and categorical variables.
+- **Correlation Analysis:** Investigate relationships between numerical variables.
+- **T-tests:** Compare two groups when assumptions are satisfied.
+- **ANOVA:** Compare group means when appropriate.
+- **Chi-square Tests:** Investigate associations between categorical variables.
+- **Regression Analysis:** Model numerical outcomes, if implemented.
+
+### Statistical Analysis Workflow
+
+```mermaid
+flowchart TD
+    A["Define Analytical Question"] --> B["Select Relevant Variables"]
+    B --> C["Choose Statistical Method"]
+    C --> D["Check Assumptions"]
+    D --> E["Run Statistical Analysis"]
+    E --> F["Interpret Results"]
+    F --> G["Document Findings and Limitations"]
+```
+
+Statistical significance does not establish causation. Conclusions should consider data quality, sample size, assumptions, and dataset composition.
+
+---
+
+## 🤖 Machine Learning and Text Analytics
+
+Machine learning and text analytics can help explore similarities, patterns, and relationships in hackathon problem statements.
+
+Potential techniques include:
+
+- **Regression:** Estimate numerical outcomes from selected features.
+- **Classification:** Predict a categorical target when suitable labels are available.
+- **K-Means Clustering:** Explore groups of records based on selected features.
+- **Principal Component Analysis (PCA):** Reduce dimensionality for exploratory analysis.
+- **TF-IDF:** Represent text based on word importance.
+- **Text Similarity:** Compare problem statements based on their textual content.
+
+### Machine Learning Workflow
+
+```mermaid
+flowchart TD
+    A["Prepared Dataset"] --> B["Select Features"]
+    B --> C["Transform Features"]
+    C --> D["Choose Model or Technique"]
+    D --> E["Train or Fit Model"]
+    E --> F["Evaluate Results"]
+    F --> G["Visualize Outputs"]
+    G --> H["Interpret Findings"]
+```
+
+The techniques available in the deployed application depend on the methods implemented in the source code. Model performance should be reported only after running an appropriate evaluation.
+
+---
+
+## 🏗️ System Architecture
+
+The following diagram illustrates the high-level architecture of the analytics application.
+
+```mermaid
+flowchart TB
+    A["User"] --> B["Streamlit Dashboard"]
+    B --> C["Data Loading Layer"]
+    C --> D["Raw Dataset"]
+    C --> E["Data Processing and Cleaning"]
+    E --> F["Analytics Modules"]
+    F --> G["Statistical Analysis"]
+    F --> H["Machine Learning and Text Analysis"]
+    G --> I["Visualization Layer"]
+    H --> I
+    I --> B
+    B --> J["Interactive Results and Insights"]
+```
+
+### Architecture Components
+
+| Component | Responsibility |
+|---|---|
+| Streamlit Interface | Displays the dashboard and interactive controls. |
+| Data Layer | Loads the available datasets. |
+| Cleaning Layer | Prepares and validates data. |
+| Analytics Layer | Performs supported statistical and machine learning operations. |
+| Visualization Layer | Generates charts and graphical outputs. |
+| Results Interface | Presents findings to the user. |
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Category | Technology / Library | Purpose in Project |
-| :--- | :--- | :--- |
-| **Language** | Python 3.13 | Core application and analytical logic |
-| **Data Manipulation** | Pandas, NumPy | Data loading, transformation, cleaning, matrix computations |
-| **Machine Learning** | Scikit-learn | Pipeline preprocessing, Linear Regression, Logistic Regression, Decision Trees, Random Forests, K-Means Clustering, TF-IDF Vectorization, Cosine Similarity |
-| **Statistical Analysis** | SciPy, Statsmodels | Descriptive statistics, ANOVA, Chi-Square, t-tests, ARIMA time-series forecasting |
-| **Interactive UI** | Streamlit | Multi-page web analytics platform with session state management |
-| **Visualizations** | Plotly Express & Graph Objects | Interactive charts: Pixel-oriented heatmaps, Geometric scatter/PCA, Hierarchical treemaps, Residual diagnostics, ROC curves |
-| **Relational Database**| SQLite (`sqlite3`) | Local relational storage, junction tables, parameterized queries, SQL studio |
-| **Testing** | Pytest | Automated test runner verifying all 8 submodules |
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Streamlit | Interactive dashboard |
+| Pandas | Data manipulation and cleaning |
+| NumPy | Numerical computations |
+| Plotly | Interactive visualizations, if used |
+| SciPy / Statsmodels | Statistical analysis, if used |
+| Scikit-learn | Machine learning, if used |
+| Git and GitHub | Version control and source code hosting |
+| Streamlit Community Cloud | Public application deployment |
+
+---
+
+## 🏁 Getting Started
+
+### Prerequisites
+
+- Python installed.
+- Git installed.
+- VS Code or another code editor.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR-USERNAME/hackathon-insights.git
+cd hackathon-insights
+```
+
+Replace `YOUR-USERNAME` with your actual GitHub username.
+
+### 2. Create a Virtual Environment
+
+```powershell
+python -m venv .venv
+```
+
+### 3. Activate the Environment
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+### 4. Install Dependencies
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### 5. Run the Application
+
+```bash
+python -m streamlit run app.py
+```
+
+Open the local URL shown in the terminal, usually:
+
+`http://localhost:8501`
 
 ---
 
 ## 📂 Project Structure
 
-```
+```text
 hackathon-insights/
-├── app.py                             # Main Streamlit application with Overview Dashboard
-├── requirements.txt                   # Complete frozen dependencies
-├── README.md                          # Comprehensive project documentation
-├── data/
-│   ├── hackathon_problem_statements.csv           # Raw dataset (with intentional flaws)
-│   ├── hackathon_problem_statements_cleaned.csv   # Cleaned dataset (520 clean records)
-│   └── hackathon_insights.db                      # Local relational SQLite database
-├── src/
-│   ├── __init__.py
-│   ├── data_loader.py                 # File discovery, loading, and dataset metadata
-│   ├── data_validation.py             # 10 automated schema, range, boolean, and format checks
-│   ├── data_cleaning.py               # IQR outlier detection and multi-stage cleaning pipeline
-│   ├── eda.py                         # Technology tags extraction, domain breakdowns, variable taxonomy
-│   ├── statistics_analysis.py         # 14 descriptive stats, correlations, ANOVA, Chi-Square, t-tests
-│   ├── regression_models.py           # OLS Linear Regression, Ridge, Decision Tree, Random Forest, BLUE diagnostics
-│   ├── classification_models.py       # Logistic Regression, Decision Trees (pruning), Random Forests, ROC curves
-│   ├── clustering.py                  # K-Means clustering, Elbow method, Silhouette score, 2D PCA projection
-│   ├── text_similarity.py             # TF-IDF vectorization and Cosine Similarity semantic search
-│   ├── time_series_analysis.py        # Annual trends, AI adoption trajectory, ARIMA(1,1,0) forecasting
-│   ├── visualizations.py              # Plotly interactive charts for Unit V visualization types
-│   └── database.py                    # SQLite tables, junction table, parameterized SQL demos
+│
+├── app.py
 ├── pages/
-│   ├── 0_🔬_Data_Analytics_Lab.py     # CENTRAL LAB: 7-stage sequential analytical workflow
-│   ├── 1_📊_Data_Explorer.py          # Multidimensional filtering and record deep-dive inspector
-│   ├── 2_🧹_Data_Quality_and_Cleaning.py # Deep-dive data quality audit and IQR outlier sandbox
-│   ├── 3_📈_Exploratory_Analysis.py   # Univariate statistics, hierarchical treemaps, hypothesis testing
-│   ├── 4_🤖_Machine_Learning_Lab.py   # Supervised ML studio, pruning curves, clustering, and model benchmarks
-│   ├── 5_🔍_Text_Similarity_and_Discovery.py # Semantic problem search engine with similarity scores
-│   ├── 6_📅_Trends_and_Forecasting.py # Multi-year growth, AI adoption rate, ARIMA time-series projection
-│   ├── 7_🎓_Syllabus_Mapping.py       # Full interactive syllabus mapping for Units I through V
-│   └── 8_📖_Methodology_and_SQL.py    # Relational SQLite studio, SQL query editor, mathematical methodology
+│   └── Additional dashboard pages
+│
+├── src/
+│   └── Analytics and data-processing modules
+│
+├── data/
+│   └── Project datasets
+│
+├── scripts/
+│   └── Data preparation and utility scripts
+│
 ├── tests/
-│   ├── __init__.py
-│   ├── test_data_loader.py
-│   ├── test_data_validation.py
-│   ├── test_data_cleaning.py
-│   ├── test_eda_and_stats.py
-│   ├── test_ml_models.py
-│   └── test_misc_modules.py           # Text similarity, SQLite, and time-series tests
-├── docs/
-│   ├── project_report.md              # Complete 17-section formal academic project report
-│   ├── data_dictionary.md             # Complete schema documentation (all 23 fields)
-│   ├── data_sources.md                # Provenance, authentic sources, synthetic methodology, limitations
-│   ├── syllabus_mapping.md            # Verified 5-unit curriculum alignment (CS513PE)
-│   ├── viva_questions.md              # 25+ comprehensive viva questions with concise answers
-│   └── methodology.md                 # Mathematical and algorithmic formulas and assumptions
-└── scripts/
-    ├── generate_dataset.py            # Reproducible raw dataset generator with controlled flaws
-    └── run_tests.py                   # Automated test execution script
+│   └── Automated tests
+│
+├── .streamlit/
+│   └── Streamlit configuration
+│
+├── requirements.txt
+├── .gitignore
+└── README.md
 ```
+
+*This is a high-level representation. Actual filenames and subfolders may differ.*
 
 ---
 
-## ⚡ Installation & Launch Instructions
+## 🧪 Testing and Verification
 
-### 1. Prerequisites
-- Python 3.10+ installed.
-- Windows, macOS, or Linux.
+Run the automated tests from the project root:
 
-### 2. Activate Virtual Environment
-Navigate to the project root directory:
 ```bash
-cd "C:\Users\Bhavy\.gemini\antigravity\scratch\hackathon-insights"
-```
-Activate the virtual environment:
-- **Windows (PowerShell)**:
-  ```powershell
-  .\.venv\Scripts\Activate.ps1
-  ```
-- **Windows (Command Prompt)**:
-  ```cmd
-  .\.venv\Scripts\activate.bat
-  ```
-- **macOS / Linux**:
-  ```bash
-  source .venv/bin/activate
-  ```
-
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
+python -m pytest
 ```
 
-### 4. Launch the Streamlit Web Application
+Launch the application locally:
+
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
-The application will start locally at **`http://localhost:8501`**.
+
+### Verification Checklist
+
+- [ ] Application starts successfully.
+- [ ] Dataset loads correctly.
+- [ ] Data cleaning executes without errors.
+- [ ] Dashboard pages load.
+- [ ] Charts render correctly.
+- [ ] Statistical methods return valid results for appropriate inputs.
+- [ ] Machine learning methods, if implemented, can be evaluated.
+- [ ] Public deployment is accessible.
 
 ---
 
-## 🧪 Running Automated Tests
+## ☁️ Deployment
 
-Run the full automated test suite with Pytest:
+The application is deployed through Streamlit Community Cloud.
+
+🔗 **Public Dashboard:** [https://hackathon-insights.streamlit.app/](https://hackathon-insights.streamlit.app/)
+
+### Updating the Project
+
+After modifying the source code or README, run:
+
 ```bash
-pytest -v
+git add .
+git commit -m "Update Hackathon Insights"
+git push origin main
 ```
-Or execute the automated test runner script:
-```bash
-python scripts/run_tests.py
-```
-**Current Execution Result**: `25 passed in 22.13s` (100% test pass rate).
+
+When the deployment is connected to the same GitHub repository and branch, new commits normally trigger redeployment.
 
 ---
 
-## 🎓 Academic Syllabus Alignment (`CS513PE: DATA ANALYTICS`)
+## ⚠️ Limitations
 
-Verified against `CSE_R24 B.Tech III-I Syllabus 2026-2027 (1).pdf` (Pages 12–13):
-
-1. **Unit I: Data Management & Data Quality**: Dual data pipeline architecture, missing values, noise, duplicate handling, Tukey's Interquartile Range (IQR) outlier detection, automated multi-stage cleaning.
-2. **Unit II: Data Analytics & Modeling**: Introduction to tools (Streamlit, Scikit-learn, SQLite), variable classification taxonomy (nominal, ordinal, interval, ratio), missing-value imputation (median/mode), 14 univariate descriptive statistics.
-3. **Unit III: Regression & Classification**: Multiple Linear Regression (OLS), Gauss-Markov BLUE assumptions, residual diagnostics, Logistic Regression, Sigmoid link, Confusion Matrix, ROC-AUC curve.
-4. **Unit IV: Segmentation & Time Series**: Supervised vs Unsupervised learning, Decision Trees with pruning and overfitting curves, Random Forest ensembles, K-Means clustering, ARIMA(1,1,0) forecasting with 95% confidence intervals.
-5. **Unit V: Data Visualization Techniques**: Pixel-oriented correlation heatmaps, Geometric projection scatter/PCA plots, Icon-based KPI scorecards, Hierarchical Plotly Treemaps, and complex model diagnostic graphs.
-
----
-
-## 🎯 Faculty Demonstration Sequence
-
-When presenting the project to faculty or viva examiners:
-
-1. **Overview Dashboard (`app.py`)**: Show total records (524 raw, 520 clean), sourced vs synthetic cohorts, AI requirement rate, and project motivation.
-2. **Data Analytics Lab (`pages/0_🔬_Data_Analytics_Lab.py`)**:
-   - **Step 1 (Load)**: Click *Load Raw Data* to display raw records and file info.
-   - **Step 2 (Validate)**: Click *Execute Data Validation Audit* to show 10 structural rule checks.
-   - **Step 3 (Inspect Quality)**: Click *Generate Quality Report* to show missing values and IQR outlier detection.
-   - **Step 4 (Clean)**: Click *Run Cleaning Pipeline* to show missing values dropping to 0, duplicates eliminated, and review the operations log.
-   - **Step 5 (Explore & Transform)**: Inspect 14 univariate statistics and the correlation heatmap.
-   - **Step 6 (Train Models)**: Train OLS Linear Regression (predicting solution days), Logistic Regression (predicting AI requirement), and K-Means clustering.
-   - **Step 7 (Export)**: Download the cleaned dataset, audit JSON, and model coefficients.
-3. **Machine Learning Lab (`pages/4_🤖_Machine_Learning_Lab.py`)**: Show the Decision Tree pruning curve demonstrating overfitting across depths 1 to 10.
-4. **Text Similarity & Discovery (`pages/5_🔍_Text_Similarity_and_Discovery.py`)**: Enter keywords (e.g., *"wildfire LoRaWAN sensor alerts"*) to demonstrate TF-IDF and Cosine Similarity matching.
-5. **Trends & Forecasting (`pages/6_📅_Trends_and_Forecasting.py`)**: Show historical annual problem counts and the ARIMA forecast for 2025–2026 with 95% confidence bands.
-6. **Syllabus Mapping (`pages/7_🎓_Syllabus_Mapping.py`)**: Display the verified 5-unit curriculum table with direct demonstration shortcuts.
-7. **Relational SQL Studio (`pages/8_📖_Methodology_and_SQL.py`)**: Execute custom SQL queries demonstrating SELECT, WHERE, GROUP BY, HAVING, and JOIN.
+- The analysis is limited by the coverage and quality of the available dataset.
+- Synthetic records, if included, must be distinguished from real-world observations.
+- Missing-value treatment and outlier handling can affect analytical results.
+- Correlation does not imply causation.
+- Statistical methods require suitable assumptions.
+- Machine learning results depend on feature selection and evaluation methodology.
+- Textual similarity does not necessarily mean that two problem statements are equivalent.
 
 ---
 
-## 📜 License & Attribution
+## 🗺️ Future Enhancements
 
-- Built as an academic hands-on capstone project for B.Tech III Year I Semester.
-- Authentic hackathon challenge records sourced under fair-use open education from Smart India Hackathon ([sih.gov.in](https://sih.gov.in)), NASA Space Apps Challenge ([spaceappschallenge.org](https://www.spaceappschallenge.org)), and MIT Grand Hacks ([grandhacks.mit.edu](https://grandhacks.mit.edu)).
+- Expand the dataset with additional verified public records.
+- Add data provenance and source references.
+- Improve interactive filters and chart customization.
+- Add export options for charts and analytical reports.
+- Include documented model evaluation metrics.
+- Add more automated tests for data cleaning and analytics.
+- Improve reproducibility of experiments and reports.
+
+---
+
+## 👩‍💻 Author
+
+**Bhavya Sri**
+
+- **GitHub:** [pothireddybhavyasri](https://github.com/pothireddybhavyasri)
+- **LinkedIn:** [Bhavya Sri](https://www.linkedin.com/in/pothireddy-bhavya-sri-031193328/)
+- **Live Project:** [Hackathon Insights](https://hackathon-insights.streamlit.app/)
+
+---
+
+<p align="center">
+  <strong>Hackathon Insights</strong><br>
+  Turning problem-statement data into meaningful analytical insights 📊
+</p>
+
